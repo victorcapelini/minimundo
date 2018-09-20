@@ -10,5 +10,6 @@ namespace VictorCapelini19092018.Repositories
         Empresa GetEmpresaId(int id);
         void UpdateEmpresa(int id, IFormCollection collection);
         void CriaEmpresa(IFormCollection collection);
+        void DeletaEmpresa(int id);
     }
 }

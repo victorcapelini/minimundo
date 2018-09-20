@@ -41,7 +41,12 @@ namespace VictorCapelini19092018.Models
             RazaoSocial = razaoSocial;
         }
 
-
+        public void Altera(string nome, string cnpj, string razaoSocial)
+        {
+            Nome = nome;
+            CNPJ = cnpj;
+            RazaoSocial = razaoSocial;
+        }
 
     }
 }

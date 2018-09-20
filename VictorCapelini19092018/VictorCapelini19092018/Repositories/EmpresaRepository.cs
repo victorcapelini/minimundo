@@ -26,19 +26,33 @@ namespace VictorCapelini19092018.Repositories
         {
             return contexto.Set<Empresa>().Where(t => t.Id == id).SingleOrDefault();
         }
-        
+
         public void UpdateEmpresa(int id, IFormCollection collection)
         {
-            throw new NotImplementedException();
+            Empresa empresaAntes = contexto.Set<Empresa>().Where(t => t.Id == id).SingleOrDefault();
+            Empresa empresaDepois = CollectionToEmpresa(collection);
+
+            empresaAntes.Altera(empresaDepois.Nome, empresaDepois.CNPJ, empresaDepois.RazaoSocial);
+            contexto.Set<Empresa>().Update(empresaAntes);
+
+            contexto.SaveChanges();
+
         }
 
         public void CriaEmpresa(IFormCollection collection)
         {
-            string nome, cnpj, razaoSocial;
-            collection.TryGetValue("Nome", out nome);
+            contexto.Set<Empresa>().Add(CollectionToEmpresa(collection));
+            contexto.SaveChanges();
+        }
 
-            Empresa empresa = new Empresa( ,"cnpj","rs");
-            contexto.Set<Empresa>().Add(empresa);
+        private static Empresa CollectionToEmpresa(IFormCollection collection)
+        {
+            return new Empresa(collection["Nome"], collection["cnpj"], collection["RazaoSocial"]);
+        }
+
+        public void DeletaEmpresa(int id)
+        {
+            contexto.Set<Empresa>().Remove(GetEmpresaId(id));
             contexto.SaveChanges();
         }
     }

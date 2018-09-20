@@ -79,7 +79,7 @@ namespace VictorCapelini19092018.Controllers
         // GET: Empresa/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(empresaRepository.GetEmpresaId(id));
         }
 
         // POST: Empresa/Delete/5
@@ -89,7 +89,7 @@ namespace VictorCapelini19092018.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                empresaRepository.DeletaEmpresa(id);
 
                 return RedirectToAction(nameof(Index));
             }

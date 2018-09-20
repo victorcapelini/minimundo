@@ -20,8 +20,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="CNPJ" class="control-label"></label>
-                <input asp-for="CNPJ" class="form-control" />
-                <span asp-validation-for="CNPJ" class="text-danger"></span>
+                <input asp-for="CNPJ" class="form-control" maxlength="18" onkeydown="javascript: fMasc(this, mCNPJ)" />
+                <span asp-validation-for="CNPJ" maxlength="18" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DataDeCadastro" class="control-label"></label>
