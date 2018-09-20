@@ -1,0 +1,11 @@
+C:\Users\CallDesk\Desktop\MiniMundo\VictorCapelini19092018\VictorCapelini19092018\bin\Debug\netcoreapp2.0\VictorCapelini19092018.deps.json
+C:\Users\CallDesk\Desktop\MiniMundo\VictorCapelini19092018\VictorCapelini19092018\bin\Debug\netcoreapp2.0\VictorCapelini19092018.runtimeconfig.json
+C:\Users\CallDesk\Desktop\MiniMundo\VictorCapelini19092018\VictorCapelini19092018\bin\Debug\netcoreapp2.0\VictorCapelini19092018.runtimeconfig.dev.json
+C:\Users\CallDesk\Desktop\MiniMundo\VictorCapelini19092018\VictorCapelini19092018\bin\Debug\netcoreapp2.0\VictorCapelini19092018.dll
+C:\Users\CallDesk\Desktop\MiniMundo\VictorCapelini19092018\VictorCapelini19092018\bin\Debug\netcoreapp2.0\VictorCapelini19092018.pdb
+C:\Users\CallDesk\Desktop\MiniMundo\VictorCapelini19092018\VictorCapelini19092018\obj\Debug\netcoreapp2.0\VictorCapelini19092018.csprojAssemblyReference.cache
+C:\Users\CallDesk\Desktop\MiniMundo\VictorCapelini19092018\VictorCapelini19092018\obj\Debug\netcoreapp2.0\VictorCapelini19092018.csproj.CoreCompileInputs.cache
+C:\Users\CallDesk\Desktop\MiniMundo\VictorCapelini19092018\VictorCapelini19092018\obj\Debug\netcoreapp2.0\VictorCapelini19092018.AssemblyInfoInputs.cache
+C:\Users\CallDesk\Desktop\MiniMundo\VictorCapelini19092018\VictorCapelini19092018\obj\Debug\netcoreapp2.0\VictorCapelini19092018.AssemblyInfo.cs
+C:\Users\CallDesk\Desktop\MiniMundo\VictorCapelini19092018\VictorCapelini19092018\obj\Debug\netcoreapp2.0\VictorCapelini19092018.dll
+C:\Users\CallDesk\Desktop\MiniMundo\VictorCapelini19092018\VictorCapelini19092018\obj\Debug\netcoreapp2.0\VictorCapelini19092018.pdb
