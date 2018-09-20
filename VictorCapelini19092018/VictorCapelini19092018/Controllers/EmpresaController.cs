@@ -5,27 +5,29 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VictorCapelini19092018.Models;
+using VictorCapelini19092018.Repositories;
 
 namespace VictorCapelini19092018.Controllers
 {
     public class EmpresaController : Controller
     {
-        IList<Empresa> empresaTeste = new List<Empresa>();
-        Empresa empresa = new Empresa("testenome", "2133412312", "testers");
+        private readonly IEmpresaRepository empresaRepository;
 
-
+        public EmpresaController(IEmpresaRepository empresaRepository)
+        {
+            this.empresaRepository = empresaRepository;
+        }
 
         // GET: Empresa
         public ActionResult Index()
         {
-            empresaTeste.Add(empresa);
-            return View(empresaTeste);
+            return View(empresaRepository.GetEmpresas());
         }
 
         // GET: Empresa/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(empresaRepository.GetEmpresaId(id));
         }
 
         // GET: Empresa/Create
