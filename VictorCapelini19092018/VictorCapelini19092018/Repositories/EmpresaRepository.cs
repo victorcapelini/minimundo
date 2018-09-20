@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using VictorCapelini19092018.Contexto;
 using VictorCapelini19092018.Models;
 
@@ -25,10 +26,20 @@ namespace VictorCapelini19092018.Repositories
         {
             return contexto.Set<Empresa>().Where(t => t.Id == id).SingleOrDefault();
         }
-
-        public void CriaEmpresa()
+        
+        public void UpdateEmpresa(int id, IFormCollection collection)
         {
+            throw new NotImplementedException();
+        }
 
+        public void CriaEmpresa(IFormCollection collection)
+        {
+            string nome, cnpj, razaoSocial;
+            collection.TryGetValue("Nome", out nome);
+
+            Empresa empresa = new Empresa( ,"cnpj","rs");
+            contexto.Set<Empresa>().Add(empresa);
+            contexto.SaveChanges();
         }
     }
 }

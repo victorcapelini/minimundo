@@ -43,7 +43,7 @@ namespace VictorCapelini19092018.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                empresaRepository.CriaEmpresa(collection);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -56,7 +56,7 @@ namespace VictorCapelini19092018.Controllers
         // GET: Empresa/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(empresaRepository.GetEmpresaId(id));
         }
 
         // POST: Empresa/Edit/5
@@ -66,7 +66,7 @@ namespace VictorCapelini19092018.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                empresaRepository.UpdateEmpresa(id, collection);
 
                 return RedirectToAction(nameof(Index));
             }
