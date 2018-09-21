@@ -1,4 +1,4 @@
-﻿@model IList<Colaborador>
+﻿@model IList<Pessoa>
 
 @{
     ViewData["Title"] = "Create";
@@ -17,7 +17,7 @@
                 <select>
                     @foreach(var item in Model )
                     {
-                        <option value="@item.Pessoa.Id">@item.Pessoa.Nome</option>
+                        <option value="@item.Id">@item.Nome</option>
                     }
                 </select>
             </div>

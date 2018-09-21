@@ -35,7 +35,7 @@ namespace VictorCapelini19092018.Controllers
         // GET: Colaborador/Create
         public ActionResult Create()
         {
-            return View(colaboradorRepository.GetColaboradores());
+            return View(pessoaRepository.GetPessoas());
         }
 
         // POST: Colaborador/Create

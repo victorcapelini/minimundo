@@ -45,9 +45,9 @@ namespace VictorCapelini19092018.Models
         public double Salario { get; private set; }
         [Required]
         public string Status { get; private set; }
-        [Required]
+        [Required, DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataDeContratacao { get; private set; }
-        [Required]
+        [Required, DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataDeDemissao { get; private set; }
         [Required]
         public string Cargo { get; private set; }

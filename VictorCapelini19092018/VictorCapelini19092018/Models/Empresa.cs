@@ -16,7 +16,7 @@ namespace VictorCapelini19092018.Models
         public string Nome { get; private set; }
         [Required]
         public string CNPJ { get; private set; }
-        [Required]
+        [Required, DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataDeCadastro { get; private set; }
         [Required]
         public string RazaoSocial { get; private set; }
