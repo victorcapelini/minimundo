@@ -4,13 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Primitives;
 
 namespace VictorCapelini19092018.Models
 {
     [DataContract]
     public class Pessoa
     {
-
         [DataMember]
         public int Id { get; protected set; }
         [Required]
@@ -29,29 +29,17 @@ namespace VictorCapelini19092018.Models
             DataDeCadastro = DateTime.Now;
             DataDeNascimento = dataDeNascimento;
         }
-        public void Cadastrar()
+
+        public Pessoa()
         {
 
         }
 
-        public void Editar()
+        public void Altera(string nome, string cpf, DateTime dataDeNascimento)
         {
-
-        }
-
-        public void Deletar()
-        {
-
-        }
-
-        public void Visualizar()
-        {
-
-        }
-
-        public void BuscaCPF()
-        {
-
+            Nome = nome;
+            CPF = cpf;
+            DataDeNascimento = dataDeNascimento;
         }
     }
 }

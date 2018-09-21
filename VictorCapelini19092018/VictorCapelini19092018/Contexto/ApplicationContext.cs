@@ -28,5 +28,7 @@ namespace VictorCapelini19092018.Contexto
         }
 
         public DbSet<VictorCapelini19092018.Models.Empresa> Empresa { get; set; }
+
+        public DbSet<VictorCapelini19092018.Models.Pessoa> Pessoa { get; set; }
     }
 }

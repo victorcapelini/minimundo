@@ -31,6 +31,7 @@ namespace VictorCapelini19092018
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connectionString));
 
             services.AddTransient<IEmpresaRepository, EmpresaRepository>();
+            services.AddTransient<IPessoaRepository, PessoaRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +53,7 @@ namespace VictorCapelini19092018
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Empresa}/{action=Index}/{id?}");
+                    template: "{controller=Pessoa}/{action=Index}/{id?}");
             });
 
             serviceProvider

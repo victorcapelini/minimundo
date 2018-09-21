@@ -27,17 +27,6 @@ namespace VictorCapelini19092018.Repositories
             return contexto.Set<Empresa>().Where(t => t.Id == id).SingleOrDefault();
         }
 
-        public void UpdateEmpresa(int id, IFormCollection collection)
-        {
-            Empresa empresaAntes = contexto.Set<Empresa>().Where(t => t.Id == id).SingleOrDefault();
-            Empresa empresaDepois = CollectionToEmpresa(collection);
-
-            empresaAntes.Altera(empresaDepois.Nome, empresaDepois.CNPJ, empresaDepois.RazaoSocial);
-            contexto.Set<Empresa>().Update(empresaAntes);
-
-            contexto.SaveChanges();
-
-        }
 
         public void CriaEmpresa(IFormCollection collection)
         {
@@ -54,6 +43,18 @@ namespace VictorCapelini19092018.Repositories
         {
             contexto.Set<Empresa>().Remove(GetEmpresaId(id));
             contexto.SaveChanges();
+        }
+
+        public void UpdateEmpresa(int id, IFormCollection collection)
+        {
+            Empresa empresaAntes = contexto.Set<Empresa>().Where(t => t.Id == id).SingleOrDefault();
+            Empresa empresaDepois = CollectionToEmpresa(collection);
+
+            empresaAntes.Altera(empresaDepois.Nome, empresaDepois.CNPJ, empresaDepois.RazaoSocial);
+            contexto.Set<Empresa>().Update(empresaAntes);
+
+            contexto.SaveChanges();
+
         }
     }
 }
