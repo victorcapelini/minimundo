@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -35,7 +36,7 @@ namespace VictorCapelini19092018.Repositories
 
         private Pessoa CollectionToPessoa(IFormCollection collection)
         {
-            DateTime dataNascimento = DateTime.Parse(collection["DataDeNascimento"]);
+            DateTime dataNascimento = DateTime.ParseExact(collection["DataDeNascimento"], "yyyy-MM-ddTHH:mm", CultureInfo.CurrentCulture);
             return new Pessoa(collection["Nome"], collection["CPF"], dataNascimento);
         }
 

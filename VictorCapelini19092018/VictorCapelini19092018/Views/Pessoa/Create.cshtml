@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="CPF" class="control-label"></label>
-                <input asp-for="CPF" maxlength="14" onkeydown="javascript: fMasc(this, mCPF)" class="form-control" />
+                <input asp-for="CPF" class="form-control" maxlength="14" oninput="javascript: fMasc(this, mCPF)"/>
                 <span asp-validation-for="CPF" class="text-danger"></span>
             </div>
             <div class="form-group">
