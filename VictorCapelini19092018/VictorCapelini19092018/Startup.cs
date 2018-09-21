@@ -53,7 +53,7 @@ namespace VictorCapelini19092018
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Pessoa}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
 
             serviceProvider
