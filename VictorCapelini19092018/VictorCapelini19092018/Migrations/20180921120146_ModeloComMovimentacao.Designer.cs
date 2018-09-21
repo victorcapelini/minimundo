@@ -11,9 +11,10 @@ using VictorCapelini19092018.Contexto;
 namespace VictorCapelini19092018.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20180921120146_ModeloComMovimentacao")]
+    partial class ModeloComMovimentacao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

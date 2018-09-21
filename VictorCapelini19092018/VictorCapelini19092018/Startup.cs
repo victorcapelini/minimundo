@@ -32,6 +32,7 @@ namespace VictorCapelini19092018
 
             services.AddTransient<IEmpresaRepository, EmpresaRepository>();
             services.AddTransient<IPessoaRepository, PessoaRepository>();
+            services.AddTransient<IColaboradorRepository, ColaboradorRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
