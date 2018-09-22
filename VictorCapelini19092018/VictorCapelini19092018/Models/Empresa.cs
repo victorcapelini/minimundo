@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace VictorCapelini19092018.Models
 {
-    [DataContract]
-    public class Empresa
+
+    public class Empresa : BaseModel
     {
-        [DataMember]
-        public int Id { get; protected set; }
         [Required]
         public string Nome { get; private set; }
         [Required]

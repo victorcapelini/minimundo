@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace VictorCapelini19092018.Models
 {
-    [DataContract]
-    public class Movimentacao
+    public class Movimentacao : BaseModel
     {
         public Movimentacao(DateTime data, string tipoMovimentacao, Empresa empresa, Pessoa pessoa)
         {
@@ -17,8 +16,7 @@ namespace VictorCapelini19092018.Models
             Empresa = empresa;
             Pessoa = pessoa;
         }
-        [DataMember]
-        public int Id { get; protected set; }
+
         [Required]
         public DateTime Data { get; private set; }
         [Required]

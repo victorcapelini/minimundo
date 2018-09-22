@@ -48,3 +48,8 @@ function mNum(num){
 	num=num.replace(/\D/g,"")
 	return num
 }
+
+function mData(data) {
+    data = data.replace(/ \d{2}\/\d{2}\/\d{4} /g, "")
+    return data
+}

@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace VictorCapelini19092018.Models
 {
-    [DataContract]
-    public class Colaborador
+    public class Colaborador : BaseModel
     {
         public Colaborador(Pessoa pessoa, Empresa empresa, double salario, string status, DateTime dataDeContratacao, DateTime dataDeDemissao, string cargo)
         {
@@ -35,8 +34,6 @@ namespace VictorCapelini19092018.Models
 
         }
 
-        [DataMember]
-        public int Id { get; protected set; }
         [Required]
         public Pessoa Pessoa { get; set; }
         [Required]
@@ -45,9 +42,9 @@ namespace VictorCapelini19092018.Models
         public double Salario { get; private set; }
         [Required]
         public string Status { get; private set; }
-        [Required, DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Required, DataType(DataType.Date)]
         public DateTime DataDeContratacao { get; private set; }
-        [Required, DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Required, DataType(DataType.Date)]
         public DateTime DataDeDemissao { get; private set; }
         [Required]
         public string Cargo { get; private set; }

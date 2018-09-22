@@ -8,18 +8,16 @@ using Microsoft.Extensions.Primitives;
 
 namespace VictorCapelini19092018.Models
 {
-    [DataContract]
-    public class Pessoa
+
+    public class Pessoa : BaseModel
     {
-        [DataMember]
-        public int Id { get; protected set; }
         [Required]
         public string Nome { get; private set; }
         [Required]
         public string CPF { get; private set; }
-        [Required,DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Required, DataType(DataType.Date)]
         public DateTime DataDeCadastro { get; private set; }
-        [Required,DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Required, DataType(DataType.Date)]
         public DateTime DataDeNascimento { get; private set; }
 
         public Pessoa(string nome, string cPF, DateTime dataDeNascimento)

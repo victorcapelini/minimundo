@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using VictorCapelini19092018.Models;
 using VictorCapelini19092018.Repositories;
 
 namespace VictorCapelini19092018.Controllers
@@ -11,12 +13,14 @@ namespace VictorCapelini19092018.Controllers
     public class ColaboradorController : Controller
     {
         private readonly IColaboradorRepository colaboradorRepository;
+        private readonly IEmpresaRepository empresaRepository;
         private readonly IPessoaRepository pessoaRepository;
 
 
-        public ColaboradorController(IColaboradorRepository colaboradorRepository, IPessoaRepository pessoaRepository)
+        public ColaboradorController(IColaboradorRepository colaboradorRepository, IEmpresaRepository empresaRepository, IPessoaRepository pessoaRepository)
         {
             this.colaboradorRepository = colaboradorRepository;
+            this.empresaRepository = empresaRepository;
             this.pessoaRepository = pessoaRepository;
         }
 
@@ -35,7 +39,11 @@ namespace VictorCapelini19092018.Controllers
         // GET: Colaborador/Create
         public ActionResult Create()
         {
-            return View(pessoaRepository.GetPessoas());
+            ViewBag.Empresas = empresaRepository.GetEmpresas();
+            ViewBag.Pessoas = pessoaRepository.GetPessoas();
+
+
+            return View();
         }
 
         // POST: Colaborador/Create
@@ -45,7 +53,7 @@ namespace VictorCapelini19092018.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                colaboradorRepository.CriaColaborador(collection);
 
                 return RedirectToAction(nameof(Index));
             }

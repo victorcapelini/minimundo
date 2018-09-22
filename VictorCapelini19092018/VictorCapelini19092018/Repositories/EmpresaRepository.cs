@@ -8,29 +8,26 @@ using VictorCapelini19092018.Models;
 
 namespace VictorCapelini19092018.Repositories
 {
-    public class EmpresaRepository : IEmpresaRepository
+    public class EmpresaRepository : BaseRepository<Empresa>,IEmpresaRepository
     {
-        private readonly ApplicationContext contexto;
-
-        public EmpresaRepository(ApplicationContext contexto)
+        public EmpresaRepository(ApplicationContext contexto) : base(contexto)
         {
-            this.contexto = contexto;
         }
 
         public IList<Empresa> GetEmpresas()
         {
-            return contexto.Set<Empresa>().ToList();
+            return dbSet.ToList();
         }
 
         public Empresa GetEmpresaId(int id)
         {
-            return contexto.Set<Empresa>().Where(t => t.Id == id).SingleOrDefault();
+            return dbSet.Where(t => t.Id == id).SingleOrDefault();
         }
 
 
         public void CriaEmpresa(IFormCollection collection)
         {
-            contexto.Set<Empresa>().Add(CollectionToEmpresa(collection));
+            dbSet.Add(CollectionToEmpresa(collection));
             contexto.SaveChanges();
         }
 
@@ -41,17 +38,17 @@ namespace VictorCapelini19092018.Repositories
 
         public void DeletaEmpresa(int id)
         {
-            contexto.Set<Empresa>().Remove(GetEmpresaId(id));
+            dbSet.Remove(GetEmpresaId(id));
             contexto.SaveChanges();
         }
 
         public void UpdateEmpresa(int id, IFormCollection collection)
         {
-            Empresa empresaAntes = contexto.Set<Empresa>().Where(t => t.Id == id).SingleOrDefault();
+            Empresa empresaAntes = dbSet.Where(t => t.Id == id).SingleOrDefault();
             Empresa empresaDepois = CollectionToEmpresa(collection);
 
             empresaAntes.Altera(empresaDepois.Nome, empresaDepois.CNPJ, empresaDepois.RazaoSocial);
-            contexto.Set<Empresa>().Update(empresaAntes);
+            dbSet.Update(empresaAntes);
 
             contexto.SaveChanges();
 
