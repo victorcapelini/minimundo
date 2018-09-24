@@ -1,0 +1,66 @@
+﻿@model VictorCapelini19092018.Models.Colaborador
+
+
+@{
+    ViewData["Title"] = "Create";
+    var empresas = ViewBag.Empresas;
+    var pessoas = ViewBag.Pessoas;
+
+}
+
+<h2>Create</h2>
+
+<h4>Colaborador</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Selecione a empresa: </label>
+                <div class="form-group">
+                    <select asp-for="Empresa" class="form-group form-control">
+                        @foreach (var empresa in empresas)
+                        {
+                            <option value=@empresa.Id>@empresa.Nome</option>
+                        }
+                    </select>
+                </div>
+                <label class="control-label">Selecione o novo colaborador: </label>
+                <select asp-for="Pessoa" class="form-group form-control">
+                    @foreach (var pessoa in pessoas)
+                    {
+                        <option value=@pessoa.Id>@pessoa.Nome</option>
+                    }
+                </select>
+                <div class="form-group">
+                    <label asp-for="Salario" class="control-label"></label>
+                    <input asp-for="Salario" class="form-control" />
+                    <span asp-validation-for="Salario" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Status" class="control-label"></label>
+                    <input asp-for="Status" class="form-control" />
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cargo" class="control-label"></label>
+                    <input asp-for="Cargo" class="form-control" />
+                    <span asp-validation-for="Cargo" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -56,5 +56,25 @@ namespace VictorCapelini19092018.Models
             this.Pessoa = pessoa;
         }
 
+        internal void Altera(string cargo, DateTime dataDeContratacao, DateTime dataDeDemissao, double salario, string status)
+        {
+            Cargo = cargo;
+            DataDeContratacao = dataDeContratacao;
+            DataDeDemissao = dataDeDemissao;
+            Salario = salario;
+            Status = status;
+        }
+
+        public void Contratar(DateTime data)
+        {
+            DataDeContratacao = data;
+            Status = "Contratado";
+        }
+
+        internal void Demitir(DateTime dataDeDemissao)
+        {
+            DataDeDemissao = dataDeDemissao;
+            Status = "Demitido";
+        }
     }
 }

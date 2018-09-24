@@ -14,6 +14,7 @@ namespace VictorCapelini19092018.Repositories
         void UpdateColaborador(int id, IFormCollection collection);
         void CriaColaborador(IFormCollection collection);
         void DeletaColaborador(int id);
-
+        void Contrata(int id, IFormCollection collection);
+        void Demite(int id, IFormCollection collection);
     }
 }

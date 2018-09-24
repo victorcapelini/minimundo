@@ -11,10 +11,12 @@ namespace VictorCapelini19092018.Controllers
     public class PessoaController : Controller
     {
         private readonly IPessoaRepository pessoaRepository;
+        private readonly IMovimentacaoRepository movimentacaoRepository;
 
-        public PessoaController(IPessoaRepository pessoaRepository)
+        public PessoaController(IPessoaRepository pessoaRepository, IMovimentacaoRepository movimentacaoRepository)
         {
             this.pessoaRepository = pessoaRepository;
+            this.movimentacaoRepository = movimentacaoRepository;
         }
 
         // GET: Pessoa
@@ -40,13 +42,13 @@ namespace VictorCapelini19092018.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
         {
-            try
+            if (ModelState.IsValid)
             {
                 pessoaRepository.CriaPessoa(collection);
 
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            else
             {
                 return View();
             }
@@ -96,6 +98,11 @@ namespace VictorCapelini19092018.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult Movimentacoes(int id)
+        {
+            return View(movimentacaoRepository.GetMovimentacaoPorPessoa(id));
         }
     }
 }

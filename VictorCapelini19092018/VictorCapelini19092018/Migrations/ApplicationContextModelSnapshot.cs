@@ -103,8 +103,7 @@ namespace VictorCapelini19092018.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("CPF")
-                        .IsRequired();
+                    b.Property<string>("CPF");
 
                     b.Property<DateTime>("DataDeCadastro");
 

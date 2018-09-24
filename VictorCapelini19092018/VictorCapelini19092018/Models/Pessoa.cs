@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Primitives;
+using VictorCapelini19092018.Validadores;
 
 namespace VictorCapelini19092018.Models
 {
@@ -13,7 +14,8 @@ namespace VictorCapelini19092018.Models
     {
         [Required]
         public string Nome { get; private set; }
-        [Required]
+        [Display(Name = "CPF")]
+        [Cpf(ErrorMessage = "O valor '{0}' é inválido para CPF")]
         public string CPF { get; private set; }
         [Required, DataType(DataType.Date)]
         public DateTime DataDeCadastro { get; private set; }
@@ -39,5 +41,6 @@ namespace VictorCapelini19092018.Models
             CPF = cpf;
             DataDeNascimento = dataDeNascimento;
         }
+
     }
 }

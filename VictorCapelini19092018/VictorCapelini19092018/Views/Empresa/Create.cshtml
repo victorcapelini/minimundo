@@ -19,15 +19,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="CNPJ" class="control-label"></label>
-                <input asp-for="CNPJ" class="form-control" maxlength="18" onkeydown="javascript: fMasc(this, mCNPJ)"/>
-                <span asp-validation-for="CNPJ" class="text-danger"></span>
+                <input asp-for="CNPJ" id="mycnpj" class="form-control" onblur="javascript: verificaCnpj()" maxlength="18" onkeydown="javascript: fMasc(this, mCNPJ)"/>
+                <span asp-validation-for="CNPJ" id="mycnpjspan" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="RazaoSocial" class="control-label"></label>
                 <input asp-for="RazaoSocial" class="form-control" />
                 <span asp-validation-for="RazaoSocial" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div id="submitcnpj" class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </form>

@@ -1,0 +1,29 @@
+﻿@model IList<Movimentacao>
+
+@{
+    ViewData["Title"] = "Movimentacoes";
+}
+
+<h2>Movimentacoes</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Ações
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.descreveMovimentação()
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

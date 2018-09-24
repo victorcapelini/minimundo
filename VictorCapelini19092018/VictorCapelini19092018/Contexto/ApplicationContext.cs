@@ -39,5 +39,7 @@ namespace VictorCapelini19092018.Contexto
         public DbSet<VictorCapelini19092018.Models.Pessoa> Pessoa { get; set; }
 
         public DbSet<VictorCapelini19092018.Models.Colaborador> Colaborador { get; set; }
+
+        public DbSet<VictorCapelini19092018.Models.Movimentacao> Movimentacao { get; set; }
     }
 }

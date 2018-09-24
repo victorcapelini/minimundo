@@ -1,0 +1,24 @@
+﻿@model VictorCapelini19092018.Models.Movimentacao
+
+@{
+    ViewData["Title"] = "Select";
+    var pessoas = ViewBag.Pessoas;
+
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Movimentacao</h4>
+
+    <select asp-for="Pessoa" class="form-group form-control">
+        @foreach (var pessoa in pessoas)
+        {
+            <option value=@pessoa.Id>@pessoa.Nome</option>
+        }
+    </select>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

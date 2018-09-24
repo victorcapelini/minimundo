@@ -17,7 +17,12 @@ namespace VictorCapelini19092018.Models
             Pessoa = pessoa;
         }
 
-        [Required]
+        public Movimentacao()
+        {
+
+        }
+
+        [Required, DataType(DataType.Date)]
         public DateTime Data { get; private set; }
         [Required]
         public string TipoMovimentacao { get; private set; }

@@ -15,6 +15,8 @@ namespace VictorCapelini19092018.Controllers
         private readonly IColaboradorRepository colaboradorRepository;
         private readonly IEmpresaRepository empresaRepository;
         private readonly IPessoaRepository pessoaRepository;
+        private readonly IMovimentacaoRepository movimentacaoRepository;
+
 
 
         public ColaboradorController(IColaboradorRepository colaboradorRepository, IEmpresaRepository empresaRepository, IPessoaRepository pessoaRepository)
@@ -46,6 +48,46 @@ namespace VictorCapelini19092018.Controllers
             return View();
         }
 
+        public ActionResult Contrata(int id)
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Contrata(int id, IFormCollection collection)
+        {
+            try
+            {
+                colaboradorRepository.Contrata(id, collection);
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult Demite(int id)
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Demite(int id, IFormCollection collection)
+        {
+            try
+            {
+                colaboradorRepository.Demite(id, collection);
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
         // POST: Colaborador/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -66,7 +108,7 @@ namespace VictorCapelini19092018.Controllers
         // GET: Colaborador/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(colaboradorRepository.GetColaboradorId(id));
         }
 
         // POST: Colaborador/Edit/5
@@ -76,7 +118,7 @@ namespace VictorCapelini19092018.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                colaboradorRepository.UpdateColaborador(id, collection);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -89,7 +131,7 @@ namespace VictorCapelini19092018.Controllers
         // GET: Colaborador/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(colaboradorRepository.GetColaboradorId(id));
         }
 
         // POST: Colaborador/Delete/5
@@ -99,7 +141,7 @@ namespace VictorCapelini19092018.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                colaboradorRepository.DeletaColaborador(id);
 
                 return RedirectToAction(nameof(Index));
             }
